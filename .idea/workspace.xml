@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0493208-9d3d-49a2-a9ba-709f5e5d959c" name="Changes" comment="Calculator" />
+    <list default="true" id="d0493208-9d3d-49a2-a9ba-709f5e5d959c" name="Changes" comment="Calculator_" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +41,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663784201305</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Calculator_">
+      <created>1663784392080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663784392080</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -57,6 +64,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Calculator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calculator" />
+    <MESSAGE value="Calculator_" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculator_" />
   </component>
 </project>
