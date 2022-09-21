@@ -5,7 +5,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Calculator.");
         Scanner in = new Scanner(System.in);
-        for(;;) {
+        //for(;;)
+        {
             System.out.print("Input an expression: ");
             String string = in.nextLine();
 
