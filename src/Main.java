@@ -5,16 +5,10 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Calculator.");
         Scanner in = new Scanner(System.in);
-        //for(;;)
-        {
-            System.out.print("Input an expression: ");
-            String string = in.nextLine();
-
-            //System.out.printf("Your input: %s \n", "\"" + string + "\"");
-            //System.out.printf("Result: %s \n", calc(string));
-            System.out.println( calc(string) );
-        }
-        //in.close();
+        System.out.print("Input an expression: ");
+        String string = in.nextLine();
+        System.out.println( calc(string) );
+        in.close();
     }
     public static String calc(String input){
         String validatorArabic1to10 = "^(?=[0-9])([1-9]?|10)$"; // Only Arabic integers from 1 to 10.
@@ -28,27 +22,20 @@ public class Main {
                 .replaceAll("\\-"," - ")
                 .replaceAll("\\*"," * ")
                 .replaceAll("\\/"," / ");
-
-        result = result.replaceAll(validatorRoman, "<ROMAN>");
-        result = result.replaceAll(validatorArabic1to10, "<ARABIC_1_to_10>");
         String[] tokens = result.split(" ");
-        if(tokens.length!=3) throw new RuntimeException("Error01: Invalid input.");
-
+        if(tokens.length!=3) throw new RuntimeException("Error01: Invalid input. Expected <operand1><operator><operand2>");
         if(!Pattern.matches(validatorOperator,tokens[1])) throw new RuntimeException("Error02: Operator missing.");
 
-        if( Pattern.matches(validatorArabic1to10,tokens[0])
-                && Pattern.matches(validatorOperator,tokens[1])
-                && Pattern.matches(validatorArabic1to10,tokens[2]) ) {
-            //System.out.println("arabic operator arabic");
-            result=evaluateArabic(tokens[0],tokens[1],tokens[2]);
+        if(   Pattern.matches(validatorArabic1to10,tokens[0])
+           && Pattern.matches(validatorOperator,tokens[1])
+           && Pattern.matches(validatorArabic1to10,tokens[2]) ) {
+          result=evaluateArabic(tokens[0],tokens[1],tokens[2]);
         } else
-        if( Pattern.matches(validatorRomanItoX,tokens[0])
-                && Pattern.matches(validatorOperator,tokens[1])
-                && Pattern.matches(validatorRomanItoX,tokens[2]) ) {
-            //System.out.println("roman operator roman");
-            result = evaluateRoman(tokens[0],tokens[1],tokens[2]);
+        if(   Pattern.matches(validatorRomanItoX,tokens[0])
+           && Pattern.matches(validatorOperator,tokens[1])
+           && Pattern.matches(validatorRomanItoX,tokens[2]) ) {
+          result = evaluateRoman(tokens[0],tokens[1],tokens[2]);
         } else throw new RuntimeException("Error03: Invalid input.");
-
         return result;
     }
 
@@ -78,7 +65,7 @@ public class Main {
 
     private static String arabic2Roman(int num) {
         String result="";
-        if(num<=0) throw new RuntimeException("Error07: No corresponding Roman number.");
+        if(num<=0) throw new RuntimeException("Error07: No zero or negative Roman numbers.");
         if(num==100) {result="C"; num-=100;} //100->0
         if(num>=90) {result="XC"; num-=90;} //90..99 -> 0..9
         if(num>=50) {result="L"; num-=50;}  //50..89 -> 0..39
